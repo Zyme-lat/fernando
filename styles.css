@@ -1,0 +1,482 @@
+:root {
+  --ink: #2f2031;
+  --muted: #765f75;
+  --cream: #fff8ef;
+  --blush: #ffe9e2;
+  --rose: #d98885;
+  --rose-dark: #9f535f;
+  --gold: #d7a94f;
+  --white: #ffffff;
+  --shadow: 0 24px 60px rgba(77, 42, 64, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat, system-ui, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--cream), #fff 48%, var(--blush));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1.02;
+  margin: 0;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 28px clamp(18px, 5vw, 72px) 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(4px);
+  opacity: 0.65;
+  z-index: -1;
+}
+
+.hero::before {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: 110px;
+  background: radial-gradient(circle, #ffd5c9, transparent 68%);
+}
+
+.hero::after {
+  width: 300px;
+  height: 300px;
+  left: -110px;
+  bottom: 60px;
+  background: radial-gradient(circle, #f7d590, transparent 70%);
+}
+
+.nav,
+.hero__grid,
+.section,
+.cta,
+.footer {
+  width: min(1160px, 100%);
+  margin-inline: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__mark {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--rose-dark), var(--gold));
+  box-shadow: var(--shadow);
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(310px, 0.68fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  padding-top: clamp(70px, 12vh, 140px);
+}
+
+.eyebrow {
+  color: var(--rose-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 790px;
+  font-size: clamp(3rem, 8vw, 6.9rem);
+  letter-spacing: -0.055em;
+}
+
+.hero__lead {
+  max-width: 690px;
+  font-size: clamp(1rem, 2vw, 1.24rem);
+}
+
+.hero__actions,
+.trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+  box-shadow: 0 16px 36px rgba(159, 83, 95, 0.28);
+}
+
+.button--ghost {
+  color: var(--rose-dark);
+  border: 1px solid rgba(159, 83, 95, 0.25);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.trust-list {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.trust-list li {
+  padding: 10px 14px;
+  border: 1px solid rgba(159, 83, 95, 0.13);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero__card,
+.plan-card,
+.calculator__box,
+.profit__table {
+  border: 1px solid rgba(159, 83, 95, 0.12);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero__card {
+  padding: clamp(24px, 4vw, 38px);
+}
+
+.hero__badge,
+.plan-card__quantity {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--rose-dark);
+  background: var(--blush);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.hero__card h2 {
+  margin: 18px 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(159, 83, 95, 0.13);
+  font-weight: 700;
+}
+
+.price-row strong {
+  color: var(--rose-dark);
+}
+
+.section {
+  padding: clamp(56px, 9vw, 104px) clamp(18px, 4vw, 0px);
+}
+
+.intro,
+.calculator {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(24px, 6vw, 72px);
+  align-items: start;
+}
+
+.intro h2,
+.section__header h2,
+.calculator h2,
+.cta h2 {
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  letter-spacing: -0.045em;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-top: 0;
+}
+
+.plan-card {
+  padding: 28px;
+}
+
+.plan-card--featured {
+  transform: translateY(-16px);
+  border-color: rgba(215, 169, 79, 0.5);
+}
+
+.plan-card h3 {
+  margin-top: 18px;
+  font-size: 2rem;
+}
+
+.plan-card dl {
+  margin: 24px 0 0;
+}
+
+.plan-card dl div {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid rgba(159, 83, 95, 0.13);
+}
+
+.plan-card dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.plan-card dd {
+  margin: 0;
+  color: var(--rose-dark);
+  font-weight: 800;
+}
+
+.section__header {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.profit__table {
+  overflow: hidden;
+}
+
+.profit__row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(159, 83, 95, 0.11);
+}
+
+.profit__row:first-child {
+  border-top: 0;
+}
+
+.profit__row--head {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+  font-weight: 800;
+}
+
+.profit__row strong {
+  color: var(--rose-dark);
+}
+
+.calculator__box {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+}
+
+.calculator label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.calculator input,
+.calculator select {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(159, 83, 95, 0.24);
+  border-radius: 18px;
+  padding: 0 16px;
+  color: var(--ink);
+  background: var(--white);
+  font: inherit;
+  font-weight: 700;
+}
+
+.calculator__results {
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--cream);
+}
+
+.calculator__results p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.calculator__results strong {
+  color: var(--rose-dark);
+}
+
+.steps__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps__list li {
+  position: relative;
+  padding: 72px 24px 24px;
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 16px 38px rgba(77, 42, 64, 0.08);
+  color: var(--muted);
+  line-height: 1.65;
+  counter-increment: step;
+}
+
+.steps__list li::before {
+  content: counter(step);
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--rose-dark);
+  font-weight: 800;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 64px;
+  padding: clamp(30px, 5vw, 56px);
+  border-radius: 36px;
+  background: linear-gradient(135deg, rgba(255, 233, 226, 0.98), rgba(255, 248, 239, 0.98));
+  box-shadow: var(--shadow);
+}
+
+.cta p {
+  max-width: 700px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px clamp(18px, 5vw, 72px) 44px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .nav {
+    align-items: flex-start;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .hero__grid,
+  .intro,
+  .calculator,
+  .cards,
+  .steps__list {
+    grid-template-columns: 1fr;
+  }
+
+  .plan-card--featured {
+    transform: none;
+  }
+
+  .profit__row {
+    grid-template-columns: 1fr;
+  }
+
+  .cta,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
